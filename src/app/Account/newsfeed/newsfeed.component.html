@@ -1,0 +1,10 @@
+<app-header></app-header>
+
+<p>newsfeed works!</p>
+<div>
+    <span *ngFor="let e of li;">
+        <p>
+        <span *ngIf="e.activity!==null">{{e.postedDateTime}} : {{e.activity}}</span>
+        </p>
+        </span>
+        </div>

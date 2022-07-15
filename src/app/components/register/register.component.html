@@ -1,0 +1,142 @@
+<!-- <div class="row pt-5">
+    <div class="col-md-6 mx-auto">
+        <div class="card rounded-0">
+            <div class="card-header">
+                <h3 class="mb-0">
+                    Register
+                </h3>
+
+            </div>
+            <div class="card-body">
+                <form action="" class="form">
+                    <div class="form-group">
+                        <label for="">Username</label>
+                        <input  [(ngModel)]="registerUserData.userName" name="userName" type="text" class="form-control rounded-0">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Password</label>
+                        <input [(ngModel)]="registerUserData.password" name="password" type="password" class="form-control rounded-0">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Repeat Password</label>
+                        <input ngValidateEqual="passwordFieldName" #modelConfirmPassword="ngModel" [(ngModel)]="registerUserData.confirm" name="confirm" type="password" class="form-control rounded-0">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Email</label>
+                        <input [(ngModel)]="registerUserData.userId" name="userId" type="text" class="form-control rounded-0">
+                    </div>
+                    <button (click)="registerUser()" type="button" class="btn btn-primary float-right">Register</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>  -->
+<app-header></app-header>
+<app-nav></app-nav>
+
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <div class="card rounded-0">
+            <div class="card-header">
+                <h3 class="mb-0">
+                    Register
+                </h3>
+
+            </div>
+            <div class="card-body">
+                <form [formGroup] = "registerForm" (ngSubmit) = "onSubmit(registerForm.value)">
+                    <div class="form-group">
+                        <label for="">FirstName</label>
+                        <input formControlName="firstName" name="firstName" type="text" class="form-control rounded-0">
+                    </div>
+
+                    <div class="error-messages">
+                        <ng-container *ngFor="let error of error_messages.firstName">
+                            <div class="error-message" *ngIf="registerForm.get('firstName').hasError(error.type) && (registerForm.get('firstName').dirty || registerForm.get('firstName').touched)">
+                                <span style='color: red;'>{{ error.message }}</span>
+                            </div>
+                        </ng-container>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="">LastName</label>
+                        <input formControlName="lastName" name="lastName" type="text" class="form-control rounded-0">
+                    </div>
+
+                    <div class="error-messages">
+                        <ng-container *ngFor="let error of error_messages.lastName">
+                            <div class="error-message" *ngIf="registerForm.get('lastName').hasError(error.type) && (registerForm.get('lastName').dirty || registerForm.get('lastName').touched)">
+                                <span style='color: red;'>{{ error.message }}</span>
+                            </div>
+                        </ng-container>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Username</label>
+                        <input formControlName="userName" name="userName" type="text" class="form-control rounded-0">
+                    </div>
+                    <div class="error-messages">
+                        <ng-container *ngFor="let error of error_messages.userName">
+                            <div class="error-message" *ngIf="registerForm.get('userName').hasError(error.type) && (registerForm.get('userName').dirty || registerForm.get('userName').touched)">
+                                <span style='color: red;'>{{ error.message }}</span>
+                            </div>
+                        </ng-container>
+                    </div>
+        
+
+                    <div class="form-group">
+                        <label for="">Password</label>
+                        <input formControlName="password" name="password" type="password" class="form-control rounded-0">
+                    </div>
+                    
+                    <div class="error-messages">
+                        <ng-container *ngFor="let error of error_messages.password">
+                            <div class="error-message" *ngIf="registerForm.get('password').hasError(error.type) && (registerForm.get('password').dirty || registerForm.get('password').touched)">
+                                <span style='color: red;'>{{ error.message }}</span>
+                            </div>
+                        </ng-container>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Repeat Password</label>
+                        <input formControlName="confirm" name="confirm" type="password" class="form-control rounded-0">
+                    </div>
+
+                    <div class="error-messages">
+                        <ng-container *ngFor="let error of error_messages.confirm">
+                            <div class="error-message" *ngIf="registerForm.get('confirm').hasError(error.type) && (registerForm.get('confirm').dirty || registerForm.get('confirm').touched)">
+                                <span style='color: red;'>{{ error.message }}</span>
+                            </div>
+                        </ng-container>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="">Email</label>
+                        <input formControlName="userId" name="userId" type="text" class="form-control rounded-0">
+                    </div>
+
+                    <div class="error-messages">
+                        <ng-container *ngFor="let error of error_messages.userId">
+                            <div class="error-message" *ngIf="registerForm.get('userId').hasError(error.type) && (registerForm.get('userId').dirty || registerForm.get('userId').touched)">
+                                <span style='color: red;'>{{ error.message }}</span>
+                            </div>
+                        </ng-container>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Profile picture</label>
+                        <input formControlName='profilePictureUrl' name="profilePictureUrl" type="file" class="form-control rounded-0" (change)="onFileSelected($event)">
+                    </div>
+                    
+                    <button  type="submit" class="btn btn-primary float-right">Register</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div> 

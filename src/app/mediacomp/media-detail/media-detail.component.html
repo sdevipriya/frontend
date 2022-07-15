@@ -1,0 +1,37 @@
+<!-- <div>
+    <h2>Media Detail</h2>
+    <div>
+        <h4>{{li.mediaTitle}}</h4>
+        <img routerLink="/media-detail/{{li.mediaId}}" routerLinkActive="active" src="{{li.mediaURL}}" alt="NA" height="500" />
+        <p>{{li.description}}</p>
+        <p>{{li.tags}}</p>
+      
+    </div>
+</div> -->
+<app-header></app-header>
+
+<h3>Media Detail</h3>
+<h4>{{li.mediaTitle}}</h4>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <img routerLink="/media-detail/{{li.mediaId}}" routerLinkActive="active" src="{{li.mediaURL}}" alt="NA" height="300" />
+      </div>
+      <div class="col-sm-4">
+        <p>{{li.description}}</p>
+        <p>{{li.tags}}</p>
+        <i class="bi bi-hand-thumbs-up">{{li.likesCount}}</i>
+        <i class="bi bi-back">{{li.commentsCount}}</i>
+        
+        <span *ngFor="let co of com;">
+          <span *ngIf="co.comment!==null">
+        <p>{{co.comment}}</p>
+        <Label>by:</Label><span>{{co.userId}}</span>
+      
+      </span>
+      </span>
+      
+      <input placeholder="Enter your comment" name="msg" [(ngModel)]="msg" (keyup.enter)="onEnter($event)">
+      </div>
+    </div>
+</div> 

@@ -1,0 +1,13 @@
+<app-header></app-header>
+<p>My media</p>
+
+<div>
+    <span *ngFor="let e of li;">
+    
+        <i class="bi bi-hand-thumbs-up" (click)="like(e.mediaId, e.userid)">{{e.likesCount}}</i>
+        <i class="bi bi-hand-thumbs-down" (click)="dislike(e.mediaId, e.userid)">{{e.dislikesCount}}</i>
+        <i class="bi bi-back">{{e.commentsCount}}</i>
+    
+        <img routerLink="/media-detail/{{e.mediaId}}" routerLinkActive="active" src="{{e.mediaURL}}" alt="NA" height="200" />
+    </span>
+</div>
